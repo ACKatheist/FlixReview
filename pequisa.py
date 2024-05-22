@@ -68,6 +68,6 @@ class Pesquisa:
         print(df_nome_parametro['nome'][:10].to_string (index = False))
         print(recomenda['title'][:10].to_string (index = False))
 
-print("nome do filme:")
-filme = Pesquisa(input("").lower())
-filme.pesquisar()
+# print("nome do filme:")
+# filme = Pesquisa(input("").lower())  # para executar basta tirar os comentarios das 3 linhas
+# filme.pesquisar()
