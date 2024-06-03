@@ -3,22 +3,19 @@
         "Id": "peba",
         "Comentarios": [
             "peba e bom",
-<<<<<<< HEAD
             "peba e legal",
             "bom"
-=======
-            "peba e legal"
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
         ]
     },
     {
         "Id": "peba5",
-        "Comentario": "melhor ainda do que o peba",
         "Comentarios": [
+        
+        "melhor ainda do que o peba",
+        
             "peba5 o melhor",
             "peba5 e god"
         ]
-<<<<<<< HEAD
     },
     {
         "Id": "elite",
@@ -34,7 +31,5 @@
         "Comentarios": [
             "bom"
         ]
-=======
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
     }
 ]

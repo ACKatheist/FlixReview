@@ -1,23 +1,17 @@
 import pandas as pd
 import jellyfish as jf
 import json
-<<<<<<< HEAD
 import os
-=======
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
 from avaliacoes import AvaliacaoManager
 arquivo_json = 'comentarios.json'
 avaliacao_json = 'avaliacoes.json'
 
-<<<<<<< HEAD
 def limpar_console():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
-=======
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
 class Pesquisa:
     def __init__(self, titulo = None):
         self.titulo = titulo
@@ -37,7 +31,6 @@ class Pesquisa:
         df = pd.read_csv('filme.csv', sep=',')
         print("nome do filme:")
         titulo = (input("").lower())
-<<<<<<< HEAD
         limpar_console()
         print("nome do diretor:")
         diretor = (input("").lower())
@@ -51,23 +44,12 @@ class Pesquisa:
         print("breve sinopse:")
         sinopse = (input("").lower())
         limpar_console()
-=======
-        print("nome do diretor:")
-        diretor = (input("").lower())
-        print("nome do elenco:")
-        elenco = (input("").lower())
-        print("nome do pais:")
-        pais = (input("").lower())
-        print("breve sinopse:")
-        sinopse = (input("").lower())
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
         df.loc[len(df)] = (titulo, diretor, elenco, pais, sinopse)
         df.to_csv('filme.csv', index=False)
     def listarFilmes(self):
         df = pd.read_csv('filme.csv', sep=',')
         pd.set_option('display.max_rows', None)
         print(df['titulo'])
-<<<<<<< HEAD
         input('Pressione enter para continuar...')
         limpar_console()
     def atualizarFilme(self):
@@ -136,70 +118,14 @@ class Pesquisa:
             print("saindo...")
             input('Pressione enter para continuar...')
             limpar_console()
-=======
-    def atualizarFilme(self):
-        df = pd.read_csv('filme.csv', sep=',')
-        num = int(input("qual a posição do filme (a posição pode se obitida em listar filmes): "))
-        print("1.titulo")
-        print("2.diretor")
-        print("3.elenco")
-        print("4.pais")
-        print("5.sinopse")
-        print("6.todos")
-        print("7.voltar")
-        opc = int(input("qual argumento quer mudar: "))
-        if opc == 1:
-            print("novo nome do filme:")
-            titulo = (input("").lower())
-            df.loc[num,'titulo'] = (titulo)
-            df.to_csv('filme.csv', index=False)
-        elif opc == 2:
-            print("novo nome do diretor:")
-            diretor = (input("").lower())
-            df.loc[num,'diretor'] = (diretor)
-            df.to_csv('filme.csv', index=False)
-        elif opc == 3:
-            print("novo nome do elenco:")
-            elenco = (input("").lower())
-            df.loc[num,'elenco'] = (elenco)
-            df.to_csv('filme.csv', index=False)
-        elif opc == 4:
-            print("novo nome do pais:")
-            pais = (input("").lower())
-            df.loc[num,'pais'] = (pais)
-            df.to_csv('filme.csv', index=False)
-        elif opc == 5:
-            print("nova sinopse:")
-            sinopse = (input("").lower())
-            df.loc[num,'sinopse'] = (sinopse)
-            df.to_csv('filme.csv', index=False)
-        elif opc == 6:
-            print("novo nome do filme:")
-            titulo = (input("").lower())
-            print("novo nome do diretor:")
-            diretor = (input("").lower())
-            print("novo nome do elenco:")
-            elenco = (input("").lower())
-            print("novo nome do pais:")
-            pais = (input("").lower())
-            print("nova sinopse:")
-            sinopse = (input("").lower())
-            df.loc[num] = (titulo, diretor, elenco, pais, sinopse)
-            df.to_csv('filme.csv', index=False)
-        else:
-            print("saindo...")
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
     def deletarFilme(self):
         df = pd.read_csv('filme.csv', sep=',')
         num = int(input("qual a posição do filme (a posição pode se obitida em listar filmes): "))
         df.drop(index=num, inplace=True)
         df.to_csv('filme.csv', index=False)
-<<<<<<< HEAD
         print('Filme deletado com sucesso!')
         input('Pressione enter para continuar...')
         limpar_console()
-=======
->>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
     def infofilme(self):
         df = pd.read_csv('filme.csv', sep=',')
         nome = input("digite o nome do filme")
