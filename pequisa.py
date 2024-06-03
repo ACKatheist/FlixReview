@@ -1,21 +1,18 @@
-import numpy as np
 import pandas as pd
 import jellyfish as jf
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-
-
-### Método de pesquisa usando o algoritmo de levenshtein ###
+import json
+from avaliacoes import AvaliacaoManager
+arquivo_json = 'comentarios.json'
+avaliacao_json = 'avaliacoes.json'
 
 class Pesquisa:
     def __init__(self, titulo = None):
         self.titulo = titulo
     def pesquisar(self):
-        df2 = pd.read_csv('filme.csv', sep=',')
-        df2.drop_duplicates(inplace= True)
-        df2['titulo'] = df2['titulo'].str.lower()
-        lista_da_coluna = df2['titulo'].tolist()
+        df = pd.read_csv('filme.csv', sep=',')
+        df.drop_duplicates(inplace= True)
+        df['titulo'] = df['titulo'].str.lower()
+        lista_da_coluna = df['titulo'].tolist()
         lista_parametro = []
         for i in lista_da_coluna:
             parametro = jf.levenshtein_distance(i, self.titulo)
@@ -44,13 +41,14 @@ class Pesquisa:
     def atualizarFilme(self):
         df = pd.read_csv('filme.csv', sep=',')
         num = int(input("qual a posição do filme (a posição pode se obitida em listar filmes): "))
-        print("1: titulo")
-        print("2: diretor")
-        print("3: elenco")
-        print("4: pais")
-        print("5: sinopse")
-        print("6: todos")
-        opc = int(input(""))
+        print("1.titulo")
+        print("2.diretor")
+        print("3.elenco")
+        print("4.pais")
+        print("5.sinopse")
+        print("6.todos")
+        print("7.voltar")
+        opc = int(input("qual argumento quer mudar: "))
         if opc == 1:
             print("novo nome do filme:")
             titulo = (input("").lower())
@@ -90,24 +88,24 @@ class Pesquisa:
             df.loc[num] = (titulo, diretor, elenco, pais, sinopse)
             df.to_csv('filme.csv', index=False)
         else:
-            print("opcao nao existente")
+            print("saindo...")
     def deletarFilme(self):
         df = pd.read_csv('filme.csv', sep=',')
         num = int(input("qual a posição do filme (a posição pode se obitida em listar filmes): "))
         df.drop(index=num, inplace=True)
         df.to_csv('filme.csv', index=False)
-
-#obra = Pesquisa()
-#obra.pesquisas()
-
-#obra = Pesquisa()
-#obra.criarFilme()
-
-#obra = Pesquisa()
-#obra.listarFilmes()
-
-#obra = Pesquisa()
-#obra.atualizarFilme()
-
-#obra = Pesquisa()
-#obra.deletarFilme()
+    def infofilme(self):
+        df = pd.read_csv('filme.csv', sep=',')
+        nome = input("digite o nome do filme")
+        linha = df[df['titulo'] == nome]
+        for index, value in linha.iterrows():
+            for col in df.columns:
+                print(f"{col}: {value[col]}")
+        with open('comentarios.json', 'r') as file:
+            dados = json.load(file)
+        for item in dados:
+            if item['Id'] == nome:
+                print(f"Comentario: {item['Comentarios']}")
+                media = AvaliacaoManager()
+                mediac = media.calcular_media(nome)
+                print(f"Média: {mediac}")

@@ -45,8 +45,8 @@ def avaliar():
 
     while True:
         print("\nEscolha uma opção:")
-        print("1. Deixar uma avaliação")
-        print("2. Listar médias das avaliações")
+        print("1.Deixar uma avaliação")
+        print("2.Listar médias das avaliações")
         print("3. Sair")
 
         opcao = input("Digite o número da opção desejada: ")
@@ -69,4 +69,4 @@ def avaliar():
         else:
             print("Opção inválida. Tente novamente.")
 
-avaliar()
+#avaliar()

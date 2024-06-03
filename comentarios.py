@@ -20,15 +20,22 @@ def exportar_para_csv(comentarios):
         writer = csv.writer(file)
         writer.writerow(["Id", "Comentario"])
         for comentario in comentarios:
-            writer.writerow([comentario["Id"], comentario["Comentario"]])
+            writer.writerow([comentario["Id"], comentario["Comentarios"]])
 
-def adicionar_comentario(comentario):
+def adicionar_comentario(comentario,nomefilme):
     comentarios = carregar_comentarios()
-    comentario_id = len(comentarios) + 1
-    comentarios.append({"Id": comentario_id, "Comentario": comentario})
+    for item in comentarios:
+        if item['Id'] == nomefilme:
+            if 'Comentarios' in item:
+                item['Comentarios'].append(comentario)
+            else:
+                item['Comentarios'] = [comentario]
+            break
+    else:
+        comentarios.append({"Id": nomefilme, "Comentarios": [comentario]})
     salvar_comentarios(comentarios)
     exportar_para_csv(comentarios)
-    print(f"Comentário adicionado com ID {comentario_id}")
+    print(f"Comentário adicionado com ID {nomefilme}")
 
 def listar_comentarios():
     comentarios = carregar_comentarios()
@@ -36,7 +43,7 @@ def listar_comentarios():
 
 def excluir_comentario(comentario_id):
     comentarios = carregar_comentarios()
-    comentarios = [c for c in comentarios if c["Id"] != int(comentario_id)]
+    comentarios = [c for c in comentarios if c["Id"] != (comentario_id)]
     salvar_comentarios(comentarios)
     exportar_para_csv(comentarios)
     print(f"Comentário com ID {comentario_id} excluído")
@@ -54,8 +61,9 @@ def comentar():
         opcao = input("Digite o número da opção desejada: ")
         
         if opcao == '1':
+            nomefilme = input("Digite o nome  do filme: ")
             comentario = input("Digite seu comentário: ")
-            adicionar_comentario(comentario)
+            adicionar_comentario(comentario,nomefilme)
         elif opcao == '2':
             comentarios = listar_comentarios()
             print("Comentários:")
@@ -71,4 +79,4 @@ def comentar():
             print("Opção inválida. Tente novamente.")
 
 
-comentar()
+#comentar()
