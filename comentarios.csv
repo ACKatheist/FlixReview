@@ -1,5 +1,10 @@
 Id,Comentario
+<<<<<<< HEAD
 peba,"['peba e bom', 'peba e legal', 'bom']"
 peba5,"['peba5 o melhor', 'peba5 e god']"
 elite,"['muito bom', 'muito bom', 'bom', 'bom']"
 la casa de papel,['bom']
+=======
+peba,"['peba e bom', 'peba e legal']"
+peba5,"['peba5 o melhor', 'peba5 e god']"
+>>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c

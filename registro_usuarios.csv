@@ -2,5 +2,9 @@ Nome,Email,Senha,Admin
 Admin,admin@,admin,True
 gabriel,victor@teste.com,gabriel!123456G,False
 gabriel,gabriel@gmail.com,Gabriel123!g,False
+<<<<<<< HEAD
 gabriell,gabriel@teste.com,gabriel123!2G,False
 gabriel,gabriel@hotmail.com,gabriel123!G,False
+=======
+gabriel,gabriel@teste.com,antonio12G!,False
+>>>>>>> 2b8d30d0af40edfdc34104a1b251b8fc63dc545c
