@@ -1,34 +1,10 @@
 {
-    "peba": {
-        "avaliacoes": [
-            5.0,
-            5.0,
-            4.0,
-            4.0,
-            3.0
-        ]
-    },
-    "peba5": {
-        "avaliacoes": [
-            4.0,
-            4.0
-        ]
-    },
-    "elite": {
+    "parasite": {
         "avaliacoes": [
             4.0,
             5.0,
             5.0,
-            5.0
-        ]
-    },
-    "la casa de papel": {
-        "avaliacoes": [
-            5.0
-        ]
-    },
-    "back": {
-        "avaliacoes": [
+            5.0,
             5.0
         ]
     }

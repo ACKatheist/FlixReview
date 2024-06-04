@@ -29,19 +29,19 @@ class Pesquisa:
         print(df_nome_parametro['nome'][:10].to_string (index = False))
     def criarFilme(self):
         df = pd.read_csv('filme.csv', sep=',')
-        print("nome do filme:")
+        print("Nome do filme: ")
         titulo = (input("").lower())
         limpar_console()
-        print("nome do diretor:")
+        print("Nome do diretor: ")
         diretor = (input("").lower())
         limpar_console()
-        print("nome do elenco:")
+        print("Nome do elenco: ")
         elenco = (input("").lower())
         limpar_console()
-        print("nome do pais:")
+        print("Nome do pais: ")
         pais = (input("").lower())
         limpar_console()
-        print("breve sinopse:")
+        print("Breve sinopse: ")
         sinopse = (input("").lower())
         limpar_console()
         df.loc[len(df)] = (titulo, diretor, elenco, pais, sinopse)
@@ -49,12 +49,15 @@ class Pesquisa:
     def listarFilmes(self):
         df = pd.read_csv('filme.csv', sep=',')
         pd.set_option('display.max_rows', None)
-        print(df['titulo'])
+        titulo = df['titulo']
+        print(titulo)
         input('Pressione enter para continuar...')
+        limpar_console()
+        limpar_console()
         limpar_console()
     def atualizarFilme(self):
         df = pd.read_csv('filme.csv', sep=',')
-        num = int(input("qual a posição do filme (a posição pode se obitida em listar filmes): "))
+        num = int(input("Qual a posição do filme (a posição pode se obitida em listar filmes): "))
         limpar_console()
         print("1. Título")
         print("2. Diretor")
@@ -128,7 +131,7 @@ class Pesquisa:
         limpar_console()
     def infofilme(self):
         df = pd.read_csv('filme.csv', sep=',')
-        nome = input("digite o nome do filme")
+        nome = input("Digite o nome do filme: ")
         linha = df[df['titulo'] == nome]
         for index, value in linha.iterrows():
             for col in df.columns:

@@ -205,9 +205,9 @@ class RegistroUsuario:
                     limpar_console()
                     if escolha  == 1:
                         print("Nome do filme:")
-                        filme = Pesquisa(input("").lower())  
-                        filme.pesquisar()
+                        filme = Pesquisa(input("").lower()) 
                         limpar_console()
+                        filme.pesquisar()
                         print("\n1. Ver informacoes de um filme!")
                         print("2. Voltar!")
                         escolha = int(input("Escolha uma opção: "))
@@ -215,6 +215,7 @@ class RegistroUsuario:
                         if escolha == 1:
                             obra = Pesquisa()
                             obra.infofilme()
+                            input('Pressione enter para continuar...')
                             limpar_console()
                         elif escolha == 2:
                             print("Saindo...")
