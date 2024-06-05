@@ -131,7 +131,8 @@ class Pesquisa:
         limpar_console()
     def infofilme(self):
         df = pd.read_csv('filme.csv', sep=',')
-        nome = input("Digite o nome do filme: ")
+        nome = input("Sobre qual filme deseja saber mais? ")
+        limpar_console()
         linha = df[df['titulo'] == nome]
         for index, value in linha.iterrows():
             for col in df.columns:
