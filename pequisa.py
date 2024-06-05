@@ -90,7 +90,7 @@ class Pesquisa:
             input('Pressione enter para continuar...')
             limpar_console()
         elif opc == 4:
-            print("Informe o nome do novo elenco:")
+            print("Informe o nome do novo país:")
             pais = (input("").lower())
             df.loc[num,'pais'] = (pais)
             df.to_csv('filme.csv', index=False)
@@ -110,7 +110,7 @@ class Pesquisa:
             diretor = (input("").lower())
             print("Informe o nome do novo elenco:")
             elenco = (input("").lower())
-            print("Informe o nome do novo elenco:")
+            print("Informe o nome do novo país:")
             pais = (input("").lower())
             print("Informe a nova sinopse:")
             sinopse = (input("").lower())
